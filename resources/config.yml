@@ -1,0 +1,165 @@
+---
+
+#      ____      __                    __      __
+#    /\  _`\   /\ \                   /\ \  __/\ \
+#   \ \,\L\_\ \ \ \/'\     __  __    \ \ \/\ \ \ \     __     _ __    ____
+#    \/_\__ \  \ \ , <    /\ \/\ \    \ \ \ \ \ \ \  /'__`\  /\`'__\ /',__\
+#      /\ \L\ \ \ \ \\`\  \ \ \_\ \    \ \ \_/ \_\ \/\ \L\.\_\ \ \/ /\__, `\
+#      \ `\____\ \ \_\ \_\ \/`____ \    \ `\___x___/\ \__/.\_\\ \_\ \/\____/
+#       \/_____/  \/_/\/_/  `/___/> \    '\/__//__/  \/__/\/_/ \/_/  \/___/
+#                              /\___/
+#                              \/__/
+
+# SkyWars v1.2.0 PRO by VixikHD
+# - Main configuration file
+configVersion: 1.2.0
+
+# DataProviders: YAML, JSON, MySQL, SQLite
+# On chosen DataProver will be saved arena data and kits
+dataProvider: YAML
+
+# If you using MySQL data provider fill this
+# MySQL isn't as stable as other data providers, I'm working on fix
+mysqlLogin:
+  host: 127.0.0.1
+  username: root
+  password: Rrss29102005#
+
+# Set economy plugin here
+economy:
+  enabled: true
+  # Supported plugins: EconomyAPI, MyCoins
+  plugin: EconomyAPI
+
+# Turn on / off kits here
+# Kits can be used only when is economy enabled
+kits:
+  enabled: true
+  useDefaults: true
+  # Manage with kit shop here
+  shop:
+    title: '§lSkyWars Kit Shop'
+    text: '§oSelect kit here'
+    confirm-title: '§lCONFIRM'
+    bought: '§7§lKits>§r§a You have successfully bought kit %1'
+    already-bought: '§7§lKits>§r§c You have already bought this kit!'
+  menu:
+    title: '§lSelect kit.'
+    text: '§oSelect equipment.'
+    eqiped: '§7§lKits>§r§a %1 kit deployed.'
+    need-buy: '§7§lKits>§r§c Buy this kit first!'
+
+
+# Create, remove, manage with kits there, NOTE: kits->enabled must be true
+customKits:
+  enabled: true
+  kits:
+    builder:
+      name: Builder
+      price: 1000
+      items:
+        # [ID, META, COUNT]
+        - ['35', '0', '30']
+        - ['359', '0', '1']
+    enderman:
+      name: EnderMan
+      price: 2500
+      items:
+        # [ID, META, COUNT]
+        - ['68', '0', '5']
+
+# Ban useful command for game
+banned-commands:
+  - /give
+  - /gamemode
+  - /kill
+  - /hub
+  - /kick
+  - /tp
+  - /effect
+
+# Chat
+chat:
+  # Enable custom chat format
+  custom: true
+  # Set custom chat format in skywars game
+  format: '§3%player: %message'
+
+# Have you map with glass cages? enable it there
+# Modes: enable | disable | detect (detects if under player is glass)
+cage: enable
+
+# WaterDog proxy support
+waterdog:
+  # Enable if you want connect player to random arena on join
+  enabled: false
+  # Player will be reconnected to this server when he wants to leave the arena.
+  lobbyServer: District
+
+# You can add items to chest refill
+chestRefill:
+  # Modes: op, poor, old
+  # Op -> Iron, Diamond items, ...
+  # Poor -> Leather, Chain and Iron items, ...
+  # Old -> All (High differences)
+  type: old
+  # Sorting: enabled or disabled...
+  sorting: enabled
+  # Add your own chest refills here...
+  customFilling:
+    custom-1:
+      name: Legendary
+      items:
+        # [ID, META, MIN COUNT, MAX COUNT, CUSTOM NAME (0 = default), [ENCHANTMENT NAME:ENCHANTMENT ID (0 = nothing):ENCHANTMENT LEVEL (0 = nothing)]]
+        - [276, 0, 1, 1, Legendary Sword, ['Sharpness:9:4', 'Fire Aspect:13:2', 'Knockback:12:1']]
+        - [264, 0, 1, 12, 0, 0]
+    custom-2:
+      name: Projectile
+      items:
+        - [344, 0, 16, 16, 0, 0]
+        - [332, 0, 16, 16, 0, 0]
+
+# Use portals, plugin automatically found empty arena for game.
+# Functions (1): forcejoin
+portals:
+  ender:
+    enabled: false
+    function: forcejoin
+    worlds: ['ender']
+  nether:
+    enabled: true
+    function: forcejoin
+    worlds: ['nether']
+
+# Create custom joinsign design here!
+joinsign:
+  custom: false
+  # You can use there %phase, %ingame, %max, %map
+  format:
+    line-1: '§3[SkyWars]'
+    line-2: '%phase'
+    line-3: '§6%ingame / %max'
+    line-4: '§1Map: %map'
+
+sounds:
+  enabled: true
+  # sounds: AnvilUseSound, ClickSound
+  start-tick: ClickSound
+  start: AnvilUseSound
+
+# You can set prize here (works only if economy is enabled)
+# If you want to disable this, set values to 0
+prize:
+  participation: 40
+  per-kill: 20
+  win: 40
+
+# Form which can be displayed after game
+review-form:
+  enabled: true
+
+leaderboard:
+  kills: [] # Put position inside (eg. [127, 42, 153])
+  wins: []
+
+...
