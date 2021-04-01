@@ -1,8 +1,0 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/4vs4/SkyWarsPro-v1
-build-by-default: true
-branches:
-- main
-projects:
-  SkyWarsPro-v1:
-    path: ""
-...
